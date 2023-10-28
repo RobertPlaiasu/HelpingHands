@@ -49,5 +49,14 @@ namespace HelpingHands.Services
 
               
         }
+        public async Task<string> DeletePost(int id)
+        {
+            var post = await _postRepository.GetPostById(id);
+            if (post == null)
+                return "Postarea nu a fost gasita";
+            await _postRepository.DeletePost(post);
+            return "Stergerea a reusit";
+        }
+
     }
 }

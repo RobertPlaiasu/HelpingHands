@@ -25,7 +25,17 @@ namespace HelpingHands.Repositories
             await _dbContext.SaveChangesAsync();
             return new Response<int>(StatusCodes.Status201Created,"Postare a fost creata cu succes!",post.Id);
         }
-
          
+
+        public async Task DeletePost(Post post)
+        {
+            _dbContext.Posts.Remove(post);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<Post> GetPostById(int id)
+        {
+            return await _dbContext.Posts.FindAsync(id);
+        }
     }
 }

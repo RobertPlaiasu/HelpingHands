@@ -7,5 +7,7 @@ namespace HelpingHands.Repositories.Contracts
     {
         Task<IEnumerable<Post>> GetAllPosts();
         Task<Response<int>> CreatePost(Post post);
+        Task DeletePost(Post post); 
+        Task<Post> GetPostById(int id);
     }
 }

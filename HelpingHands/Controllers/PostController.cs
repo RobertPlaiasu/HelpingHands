@@ -61,5 +61,12 @@ namespace HelpingHands.Controllers
             });
         }
 
+        [HttpDelete("delete")]
+        public async Task<ActionResult<string>> DeletePost(int id)
+        {
+            var response = await _postService.DeletePost(id);
+            return Ok(response);
+        }
+
     }
 }

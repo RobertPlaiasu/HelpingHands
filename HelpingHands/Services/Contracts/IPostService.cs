@@ -9,5 +9,6 @@ namespace HelpingHands.Services.Contracts
         Task<Response<IEnumerable<Post>>> GetPosts();
         Task<Response<IEnumerable<Category>>> GetCategories();
         Task<Response<int>> CreatePost(CreatePostDto post);
+        Task<string> DeletePost(int id);
     }
 }

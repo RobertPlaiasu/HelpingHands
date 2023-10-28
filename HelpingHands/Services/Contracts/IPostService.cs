@@ -8,6 +8,6 @@ namespace HelpingHands.Services.Contracts
     {
         Task<Response<IEnumerable<Post>>> GetPosts();
         Task<Response<IEnumerable<Category>>> GetCategories();
-        Task<Response<string>> CreatePost(CreatePostDto post);
+        Task<Response<int>> CreatePost(CreatePostDto post);
     }
 }

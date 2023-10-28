@@ -19,11 +19,11 @@ namespace HelpingHands.Repositories
             return await _dbContext.Posts.Include(x=>x.Needs).ToListAsync();
         }
 
-        public async Task<Response<string>> CreatePost(Post post)
+        public async Task<Response<int>> CreatePost(Post post)
         {
             await _dbContext.Posts.AddAsync(post);
             await _dbContext.SaveChangesAsync();
-            return new Response<string>(StatusCodes.Status201Created,"Postare a fost creata cu succes!");
+            return new Response<int>(StatusCodes.Status201Created,"Postare a fost creata cu succes!",post.Id);
         }
 
          

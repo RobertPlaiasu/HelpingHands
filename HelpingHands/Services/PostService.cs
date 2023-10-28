@@ -41,10 +41,10 @@ namespace HelpingHands.Services
         }
 
         
-        public async Task<Response<string>> CreatePost(CreatePostDto post)
+        public async Task<Response<int>> CreatePost(CreatePostDto post)
         {
             if (null == await _ongRepository.GetOngById(post.OngId))
-                return new Response<string>(StatusCodes.Status400BadRequest,"Ong-ul nu exista in baza de date!");
+                return new Response<int>(StatusCodes.Status400BadRequest,"Ong-ul nu exista in baza de date!");
               return await _postRepository.CreatePost(_mapper.Map<Post>(post));
 
               

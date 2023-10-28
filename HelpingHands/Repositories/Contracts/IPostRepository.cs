@@ -6,6 +6,6 @@ namespace HelpingHands.Repositories.Contracts
     public interface IPostRepository
     {
         Task<IEnumerable<Post>> GetAllPosts();
-        Task<Response<string>> CreatePost(Post post);
+        Task<Response<int>> CreatePost(Post post);
     }
 }

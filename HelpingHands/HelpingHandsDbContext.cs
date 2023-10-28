@@ -61,13 +61,15 @@ namespace HelpingHands
             modelBuilder.Entity<Ong>().HasData(new Ong
             {
                 Id = 1,
-                Address= "Str Maresal Dumtrescu nr. 555",
-                ONGDescription = "Descrierea unui ONG ce se ocupa cu ajutarea oameniilor nevoiasi.",
+                Name = "Asociatia Aluziva",
+                Address = "Str. Dimitrie Cantemir nr. 3",
+                ONGDescription = "Suntem toți aici să învățăm și împreună să facem o schimbare. Susținem comunitățile defavorizate, în mod special mamele și copiii din medii vulnerabile, educația în mediul rural și orice alte cauze care nu pot schimba lumea, dar pot schimba lumea cuiva. Picătură cu picătură se face un ocean. #picaturacupicaturasefaceunocean",
                 Number = "3213132213",
                 Ocupation = "Oameni fara adapost",
                 UserId = 1,
-                Image = "./default.png", 
-                CategoryId=1,
+                Image = " ../../assets/aluziva.png",
+                Email = "hello@asociatiaaluziva.ro",
+                CategoryId =1,
                 x= 44393315591258590,
                 y= 26043945138016127,
             });
@@ -75,11 +77,27 @@ namespace HelpingHands
             {
                 Id = 1,
                 Title = "Ajuta oamenii fara adapost",
+                
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum lacinia convallis. Donec in tortor nec odio elementum aliquam facilisis a lorem. Aliquam placerat convallis orci, quis ullamcorper lorem consectetur et. Mauris in turpis et leo pretium tempor. Nullam vel posuere lacus. Aenean ut diam non ligula sagittis sagittis. Quisque ac dictum urna, non eleifend lectus.",
                 CategoryId = 1,
                 OngId = 1,
                 Image = "./default.png",
-                Address = "Ste Drumul Sperantei nr 55"
+                Address = "Str. Dimitrie Cantemir nr. 3",
+                County = "Bucuresti"
+            });
+            modelBuilder.Entity<Need>().HasData(new Need
+            {
+                Id = 1,
+                Name = "lemn",
+                Quantity = 50,
+                PostId = 1
+            });
+            modelBuilder.Entity<Need>().HasData(new Need
+            {
+                Id = 2,
+                Name = "bax caramida",
+                Quantity = 500,
+                PostId = 1
             });
 
 

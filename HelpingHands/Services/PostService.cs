@@ -21,13 +21,9 @@ namespace HelpingHands.Services
         public async Task<Response<IEnumerable<Post>>> GetPosts()
         {
             var posts = await _postRepository.GetAllPosts();
-            return new Response<IEnumerable<Post>>(StatusCodes.Status200OK,"Postarile au fost transmise cu succes.",posts);
-            /*
-            foreach(var post in posts) 
-            {
-                post.Needs = await _needRepository.
-            }
-            */
+            
+            return new Response<IEnumerable<Post>>(StatusCodes.Status200OK, "Postarile au fost transmise cu succes.", posts);
+
         }
 
         public async Task<Response<IEnumerable<Category>>> GetCategories()

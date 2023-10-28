@@ -5,12 +5,17 @@ using HelpingHands;
 using Microsoft.EntityFrameworkCore;
 using HelpingHands.Services.Contracts.UserService;
 using HelpingHands.Services.Contracts;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options => {
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+    // In addition, you can limit the depth
+    // options.MaxDepth = 4;
+}); ;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors(options =>

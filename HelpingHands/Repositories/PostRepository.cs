@@ -15,7 +15,7 @@ namespace HelpingHands.Repositories
 
         public async Task<IEnumerable<Post>> GetAllPosts()
         {
-            return await _dbContext.Posts.ToListAsync();
+            return await _dbContext.Posts.Include(x=>x.Needs).Include(x=>x.Ong).ToListAsync();
         }
     }
 }

@@ -38,5 +38,17 @@ namespace HelpingHands.Controllers
                 Data = response.Data
             });
         }
+        [HttpGet("counties")]
+        public async Task<ActionResult<IEnumerable<string>>> GetCounties()
+        {
+            return Ok(new List<string>  {
+                "Bucureşti",
+                "Alba",
+                "Botoşani",
+                "Braşov"
+            });
+            
+        }
+
     }
 }

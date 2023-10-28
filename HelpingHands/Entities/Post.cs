@@ -26,6 +26,7 @@ namespace HelpingHands.Entities
         public string Image { get; set; }
         [Required]
         public string? Address { get; set; }
+        public string County { get; set; }
         public List<Need> Needs { get; set; }
     }
 }

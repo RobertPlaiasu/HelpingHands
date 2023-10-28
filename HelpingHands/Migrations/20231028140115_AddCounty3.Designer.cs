@@ -4,6 +4,7 @@ using HelpingHands;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HelpingHands.Migrations
 {
     [DbContext(typeof(HelpingHandsDbContext))]
-    partial class HelpingHandsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231028140115_AddCounty3")]
+    partial class AddCounty3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,15 +102,7 @@ namespace HelpingHands.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -142,13 +137,11 @@ namespace HelpingHands.Migrations
                         new
                         {
                             Id = 1,
-                            Address = "Str. Dimitrie Cantemir nr. 3",
+                            Address = "Str Maresal Dumtrescu nr. 555",
                             CategoryId = 1,
-                            Email = "hello@asociatiaaluziva.ro",
-                            Image = " ../../assets/aluziva.png",
-                            Name = "Asociatia Aluziva",
+                            Image = "./default.png",
                             Number = "3213132213",
-                            ONGDescription = "Suntem toți aici să învățăm și împreună să facem o schimbare. Susținem comunitățile defavorizate, în mod special mamele și copiii din medii vulnerabile, educația în mediul rural și orice alte cauze care nu pot schimba lumea, dar pot schimba lumea cuiva. Picătură cu picătură se face un ocean. #picaturacupicaturasefaceunocean",
+                            ONGDescription = "Descrierea unui ONG ce se ocupa cu ajutarea oameniilor nevoiasi.",
                             Ocupation = "Oameni fara adapost",
                             UserId = 1,
                             x = 44393315591258590L,
@@ -205,7 +198,7 @@ namespace HelpingHands.Migrations
                         new
                         {
                             Id = 1,
-                            Address = "Str. Dimitrie Cantemir nr. 3",
+                            Address = "Ste Drumul Sperantei nr 55",
                             CategoryId = 1,
                             County = "Bucuresti",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum lacinia convallis. Donec in tortor nec odio elementum aliquam facilisis a lorem. Aliquam placerat convallis orci, quis ullamcorper lorem consectetur et. Mauris in turpis et leo pretium tempor. Nullam vel posuere lacus. Aenean ut diam non ligula sagittis sagittis. Quisque ac dictum urna, non eleifend lectus.",

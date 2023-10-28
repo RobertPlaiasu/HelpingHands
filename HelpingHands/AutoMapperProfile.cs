@@ -8,12 +8,16 @@ namespace HelpingHands
     {
         public AutoMapperProfile()
         {
-            
+            CreateMap<Ong, GetOngDto>();
+            CreateMap<Ong, GetOngDetailsDto>();
             CreateMap<User, GetUserDto>();
+                    
             /*
             CreateMap<CreateUserDto, User>();
             CreateMap<UpdateUserDto, User>();
             */
         }
+
+
     }
 }

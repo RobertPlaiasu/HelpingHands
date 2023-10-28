@@ -10,12 +10,13 @@ namespace HelpingHands.Entities
 
         public List<Post> Posts { get; set; }
         [Required]
+        
         public string Image { get; set; }
 
         [Required]
-        public int x { get; set; }
+        public long x { get; set; }
         [Required]
-        public int y { get; set; }
+        public long y { get; set; }
 
         [Required]
         public string ONGDescription { get; set; }
@@ -25,9 +26,10 @@ namespace HelpingHands.Entities
         public string Number { get; set; }
         [Required]
         public string Ocupation { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
         
-        public List<Review> Reviews { get; set; }
+        public List<Review>? Reviews { get; set; }
         public int CategoryId { get; set; } 
         public Category Category { get; set; }
     }

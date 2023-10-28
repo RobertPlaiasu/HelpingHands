@@ -4,7 +4,12 @@ using HelpingHands.Repositories.Contracts;
 namespace HelpingHands.Repositories
 {
     public class UserRepository : IUserRepository
-    { 
+    {
+        private readonly HelpingHandsDbContext _dbContext;
+
+        public UserRepository(HelpingHandsDbContext dbContext) {
+            _dbContext = dbContext;
+        }
         /*
         public async Task<string> Login(User user)
         {
@@ -16,9 +21,18 @@ namespace HelpingHands.Repositories
             throw new NotImplementedException();
         }
 
-        Task<User> IUserRepository.GetUser(int id)
+        public async Task<User> GetUserById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var user = await _dbContext.Users.FindAsync(id);
+                return user;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         }
     }
 }

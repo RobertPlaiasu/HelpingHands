@@ -1,14 +1,10 @@
-global using JwtWebApiTutorial.Services.UserService;
 using HelpingHands.Repositories.Contracts;
 using HelpingHands.Repositories;
 using HelpingHands.Services;
-
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-
-using System.Text;
 using HelpingHands;
 using Microsoft.EntityFrameworkCore;
+using HelpingHands.Services.Contracts.UserService;
+using HelpingHands.Services.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,12 +24,15 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<HelpingHandsDbContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("HelpingHandsConnection"));
 });
-
-builder.Services.AddHttpContextAccessor();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 /*
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
@@ -62,6 +61,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 */
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IOngRepository, OngRepository>();
+builder.Services.AddScoped<IOngService, OngService>();
+builder.Services.AddScoped<IPostRepository, PostRepository>();
+builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddScoped<INeedRepository, NeedRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -71,7 +76,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("NgOrigins");
+app.UseCors("AllowSpecificOrigins");
 
 app.UseHttpsRedirection();
 

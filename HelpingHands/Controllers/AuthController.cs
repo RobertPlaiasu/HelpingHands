@@ -1,5 +1,6 @@
 ﻿using HelpingHands.Dtos;
 using HelpingHands.Entities;
+using HelpingHands.Services.Contracts.UserService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
@@ -153,30 +154,25 @@ namespace JwtWebApiTutorial.Controllers
             }
         }
         */
-        /*
+        
         [HttpGet("user")]
-        public async Task<ActionResult<User>> GetUserById(int id)
+        public async Task<ActionResult<GetUserDto>> GetUserById(int id)
         {
             try
             {
-                var user = await _userService.GetUserById(id);
+                var response = await _userService.GetUserById(id);
 
-                if (user == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-
-                    return Ok(user);
-                }
+                return StatusCode(response.StatusCode, new {
+                    Data = response.Data,
+                    Message = response.Message
+                });
             }
             catch (Exception e)
             {
                 throw new Exception("Eroare interna " + e.Message, e);
             }
         }
-        */
+        
 
 
     }

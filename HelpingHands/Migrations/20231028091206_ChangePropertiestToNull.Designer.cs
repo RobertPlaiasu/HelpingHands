@@ -4,6 +4,7 @@ using HelpingHands;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HelpingHands.Migrations
 {
     [DbContext(typeof(HelpingHandsDbContext))]
-    partial class HelpingHandsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231028091206_ChangePropertiestToNull")]
+    partial class ChangePropertiestToNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -138,10 +141,6 @@ namespace HelpingHands.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -154,6 +153,10 @@ namespace HelpingHands.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("NameNeed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("OngId")
                         .IsRequired()
                         .HasColumnType("int");
@@ -163,6 +166,9 @@ namespace HelpingHands.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int>("numberNeed")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
@@ -170,18 +176,6 @@ namespace HelpingHands.Migrations
                     b.HasIndex("OngId");
 
                     b.ToTable("Posts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "Ste Drumul Sperantei nr 55",
-                            CategoryId = 1,
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum lacinia convallis. Donec in tortor nec odio elementum aliquam facilisis a lorem. Aliquam placerat convallis orci, quis ullamcorper lorem consectetur et. Mauris in turpis et leo pretium tempor. Nullam vel posuere lacus. Aenean ut diam non ligula sagittis sagittis. Quisque ac dictum urna, non eleifend lectus.",
-                            Image = "./default.png",
-                            OngId = 1,
-                            Title = "Ajuta oamenii fara adapost"
-                        });
                 });
 
             modelBuilder.Entity("HelpingHands.Entities.Review", b =>

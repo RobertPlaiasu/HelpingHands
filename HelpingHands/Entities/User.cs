@@ -17,21 +17,22 @@ namespace HelpingHands.Entities
         [EmailAddress]
         public string Email { get; set; }
         [AllowNull]
-        public byte[] PasswordHash { get; set; }
+        public byte[]? PasswordHash { get; set; }
         [AllowNull]
-        public byte[] PasswordSalt { get; set; }
+        public byte[]? PasswordSalt { get; set; }
         [AllowNull]
-        public string RefreshToken { get; set; } = string.Empty;
+        public string? RefreshToken { get; set; } = string.Empty;
         [AllowNull]
-        public DateTime TokenCreated { get; set; }
+        public DateTime? TokenCreated { get; set; }
         [AllowNull]
-        public DateTime TokenExpires { get; set; }
+        public DateTime? TokenExpires { get; set; }
         [DefaultValue(0)]
         public int Exp { get; set; }
         [DefaultValue(0)]
         public int Level { get; set; }
         [DefaultValue("user")]
         public string Role { get; set; } = "user";
+        public int? OngId { get; set; }
         public Ong? Ong { get; set; }
 
 

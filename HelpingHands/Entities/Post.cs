@@ -25,10 +25,7 @@ namespace HelpingHands.Entities
         [Required]
         public string Image { get; set; }
         [Required]
-        public string NameNeed { get; set; }
-        [Required]
-        [Range(1, int.MaxValue)]    
-        public int numberNeed {  get; set; }
+        public string? Address { get; set; }
         public List<Need> Needs { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HelpingHands.Dtos;
+using HelpingHands.Entities;
 using HelpingHands.Repositories;
 using HelpingHands.Repositories.Contracts;
 using HelpingHands.Responses;
@@ -43,5 +44,14 @@ namespace HelpingHands.Services
             var ongs =  _mapper.Map<IEnumerable<GetOngDto>>(await _ongRepostiory.GetOngs());
             return new Response<IEnumerable<GetOngDto>>(StatusCodes.Status200OK, "Operatia a reusit", ongs);
         }
+
+        public async Task<GetOngDto> UpdateOng(StoreOngDto ong, int id)
+        {
+            var ongEntity = _mapper.Map<Ong>(ong);
+            ongEntity.Id = id;
+            return _mapper.Map<GetOngDto>(await _ongRepostiory.UpdateOng(ongEntity));
+        }
+
+        
     }
 }

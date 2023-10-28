@@ -21,5 +21,12 @@ namespace HelpingHands.Repositories
         {
             return await _context.Ongs.ToListAsync();
         }
+
+        public async Task<Ong> UpdateOng(Ong ong)
+        {
+            _context.Ongs.Update(ong);
+            await _context.SaveChangesAsync();
+            return await this.GetOngById(ong.Id);
+        }
     }
 }

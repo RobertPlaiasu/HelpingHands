@@ -7,5 +7,6 @@ namespace HelpingHands.Services.Contracts
     {
         Task<Response<IEnumerable<GetOngDto>>> GetOngs();
         Task<Response<GetOngDetailsDto>> GetOng(int id);
+        Task<GetOngDto> UpdateOng(StoreOngDto ong, int id);
     }
 }

@@ -29,5 +29,12 @@ namespace HelpingHands.Repositories
             await _dbContext.SaveChangesAsync();
             return  "Need a fost creat cu succes!";
         }
+
+        public async Task<string> UpdateNeed(Need need)
+        {
+            _dbContext.Needs.Update(need);
+            await _dbContext.SaveChangesAsync();
+            return "Nevoia a fost modficata!";
+        }
     }
 }

@@ -28,6 +28,10 @@ namespace HelpingHands.Controllers
         {
             return Ok(await _needService.CreateNeed(need));
         }
-
+        [HttpPut("update")]
+        public async Task<ActionResult<string>> CreateNeed(PostNeedDto need,int id)
+        {
+            return Ok(await _needService.UpdateNeed(need,id));
+        }
     }
 }

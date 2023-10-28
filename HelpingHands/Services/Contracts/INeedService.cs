@@ -7,5 +7,6 @@ namespace HelpingHands.Services.Contracts
     {
         Task<IEnumerable<Need>> GetNeeds();
         Task<string> CreateNeed(PostNeedDto need);
+        Task<string> UpdateNeed(PostNeedDto need,int id);
     }
 }

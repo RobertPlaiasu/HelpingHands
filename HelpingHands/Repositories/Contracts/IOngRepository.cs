@@ -6,5 +6,6 @@ namespace HelpingHands.Repositories.Contracts
     {
         Task<Ong> GetOngById(int id);
         Task<IEnumerable<Ong>> GetOngs();
+        Task<Ong> UpdateOng(Ong ong);   
     }
 }

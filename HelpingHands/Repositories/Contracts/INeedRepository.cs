@@ -7,5 +7,6 @@ namespace HelpingHands.Repositories.Contracts
         Task<List<Need>> GetNeedsForPost(int postId);
         Task<IEnumerable<Need>> GetNeeds();
         Task<string> CreateNeed(Need need);
+        Task<string> UpdateNeed(Need need);
     }
 }

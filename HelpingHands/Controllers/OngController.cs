@@ -40,16 +40,14 @@ namespace HelpingHands.Controllers
         }
         /*
         [HttpPut("ong")]
-        public async Task<ActionResult<GetOngDto>> GetOngById(StoreOngDto ong,int id)
+        public async Task<ActionResult<GetOngDto>> UpdateOng(StoreOngDto ong,int id)
         {
-            var response = await _ongService.GetOng(id);
-            return StatusCode(response.StatusCode, new
-            {
-                Message = response.Message,
-                Data = response.Data
-            });
+            var ongGet = await _ongService.UpdateOng(ong,id);
+            return Ok(ongGet);
         }
         */
+        
+        
 
     }
 }

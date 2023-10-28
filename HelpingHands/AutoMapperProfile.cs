@@ -12,6 +12,7 @@ namespace HelpingHands
             CreateMap<Ong, GetOngDetailsDto>();
             CreateMap<User, GetUserDto>();
             CreateMap<CreatePostDto, Post>();
+            CreateMap<PostNeedDto, Need>();
             /*
             CreateMap<CreateUserDto, User>();
             CreateMap<UpdateUserDto, User>();

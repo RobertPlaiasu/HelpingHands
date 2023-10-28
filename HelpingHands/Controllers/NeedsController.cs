@@ -1,4 +1,5 @@
-﻿using HelpingHands.Entities;
+﻿using HelpingHands.Dtos;
+using HelpingHands.Entities;
 using HelpingHands.Services.Contracts;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
@@ -22,5 +23,11 @@ namespace HelpingHands.Controllers
         {
             return Ok(await _needService.GetNeeds());
         }
+        [HttpPost("create")]
+        public async Task<ActionResult<string>> CreateNeed(PostNeedDto need)
+        {
+            return Ok(await _needService.CreateNeed(need));
+        }
+
     }
 }

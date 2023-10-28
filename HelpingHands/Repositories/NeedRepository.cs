@@ -1,6 +1,7 @@
 ﻿using HelpingHands.Entities;
 using HelpingHands.Repositories.Contracts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace HelpingHands.Repositories
 {
@@ -20,6 +21,13 @@ namespace HelpingHands.Repositories
         public async Task<IEnumerable<Need>> GetNeeds()
         {
             return await _dbContext.Needs.ToListAsync();
+        }
+
+        public async Task<string> CreateNeed(Need need)
+        {
+            await _dbContext.Needs.AddAsync(need);
+            await _dbContext.SaveChangesAsync();
+            return  "Need a fost creat cu succes!";
         }
     }
 }

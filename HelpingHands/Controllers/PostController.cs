@@ -50,5 +50,16 @@ namespace HelpingHands.Controllers
             
         }
 
+        [HttpPost("store")]
+        public async Task<ActionResult<object>> StorePost()
+        {
+            var response = await _postService.GetCategories();
+            return StatusCode(response.StatusCode, new
+            {
+                Message = response.Message,
+                Data = response.Data
+            });
+        }
+
     }
 }

@@ -34,5 +34,9 @@ namespace HelpingHands.Services
         }
 
         
+        public async Task<Response<string>> CreatePost(Post post)
+        {
+            throw new Exception("t");
+        }
     }
 }

@@ -8,8 +8,9 @@ namespace HelpingHands.Dtos
         public int Id { get; set; }
 
         public List<Post>? Posts { get; set; }
-        
 
+        public string Name;
+        public string Email;
         public string Image { get; set; }
 
         

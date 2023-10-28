@@ -38,6 +38,18 @@ namespace HelpingHands.Controllers
                 Data = response.Data
             });
         }
-        
+        /*
+        [HttpPut("ong")]
+        public async Task<ActionResult<GetOngDto>> GetOngById(StoreOngDto ong,int id)
+        {
+            var response = await _ongService.GetOng(id);
+            return StatusCode(response.StatusCode, new
+            {
+                Message = response.Message,
+                Data = response.Data
+            });
+        }
+        */
+
     }
 }

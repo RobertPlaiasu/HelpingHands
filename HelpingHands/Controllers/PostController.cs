@@ -42,10 +42,10 @@ namespace HelpingHands.Controllers
         public async Task<ActionResult<IEnumerable<string>>> GetCounties()
         {
             return Ok(new List<string>  {
-                "Bucureşti",
+                "Bucuresti",
                 "Alba",
-                "Botoşani",
-                "Braşov"
+                "Botosani",
+                "Brasov"
             });
             
         }

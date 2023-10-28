@@ -17,5 +17,9 @@ namespace HelpingHands.Repositories
         {
             return await _dbContext.Needs.Where(x => x.PostId == postId).ToListAsync();
         }
+        public async Task<IEnumerable<Need>> GetNeeds()
+        {
+            return await _dbContext.Needs.ToListAsync();
+        }
     }
 }

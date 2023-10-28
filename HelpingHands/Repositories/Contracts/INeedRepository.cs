@@ -5,5 +5,6 @@ namespace HelpingHands.Repositories.Contracts
     public interface INeedRepository
     {
         Task<List<Need>> GetNeedsForPost(int postId);
+        Task<IEnumerable<Need>> GetNeeds();
     }
 }

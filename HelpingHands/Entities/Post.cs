@@ -23,7 +23,7 @@ namespace HelpingHands.Entities
         [Required]
         public Category Category { get; set; }
         [Required]
-        public string Image { get; set; }
+        public string Image { get; set; } = string.Empty;
         [Required]
         public string? Address { get; set; }
         public string County { get; set; }

@@ -51,9 +51,9 @@ namespace HelpingHands.Controllers
         }
 
         [HttpPost("store")]
-        public async Task<ActionResult<object>> StorePost()
+        public async Task<ActionResult<string>> StorePost(CreatePostDto post)
         {
-            var response = await _postService.GetCategories();
+            var response = await _postService.CreatePost(post);
             return StatusCode(response.StatusCode, new
             {
                 Message = response.Message,

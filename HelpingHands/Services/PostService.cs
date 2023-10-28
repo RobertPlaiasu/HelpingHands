@@ -1,4 +1,6 @@
-﻿using HelpingHands.Entities;
+﻿using AutoMapper;
+using HelpingHands.Dtos;
+using HelpingHands.Entities;
 using HelpingHands.Repositories.Contracts;
 using HelpingHands.Responses;
 using HelpingHands.Services.Contracts;
@@ -11,12 +13,17 @@ namespace HelpingHands.Services
         private readonly IPostRepository _postRepository;
         private readonly INeedRepository _needRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IOngRepository _ongRepository;
+        private readonly IMapper _mapper;
 
-        public PostService(IPostRepository postRepository,INeedRepository needRepository,ICategoryRepository categoryRepository)
+        public PostService(IPostRepository postRepository,INeedRepository needRepository,ICategoryRepository categoryRepository,IMapper mapper,
+            IOngRepository ongRepository)
         {
             _postRepository = postRepository;
             _needRepository = needRepository;
             _categoryRepository = categoryRepository;
+            _ongRepository = ongRepository;
+            _mapper = mapper;
         }
         public async Task<Response<IEnumerable<Post>>> GetPosts()
         {
@@ -34,9 +41,13 @@ namespace HelpingHands.Services
         }
 
         
-        public async Task<Response<string>> CreatePost(Post post)
+        public async Task<Response<string>> CreatePost(CreatePostDto post)
         {
-            throw new Exception("t");
+            if (null == await _ongRepository.GetOngById(post.OngId))
+                return new Response<string>(StatusCodes.Status400BadRequest,"Ong-ul nu exista in baza de date!");
+              return await _postRepository.CreatePost(_mapper.Map<Post>(post));
+
+              
         }
     }
 }

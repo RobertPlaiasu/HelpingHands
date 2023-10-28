@@ -1,5 +1,6 @@
 ﻿using HelpingHands.Entities;
 using HelpingHands.Repositories.Contracts;
+using HelpingHands.Responses;
 using Microsoft.EntityFrameworkCore;
 
 namespace HelpingHands.Repositories
@@ -15,7 +16,16 @@ namespace HelpingHands.Repositories
 
         public async Task<IEnumerable<Post>> GetAllPosts()
         {
-            return await _dbContext.Posts.Include(x=>x.Needs).Include(x=>x.Ong).ToListAsync();
+            return await _dbContext.Posts.Include(x=>x.Needs).ToListAsync();
         }
+
+        public async Task<Response<string>> CreatePost(Post post)
+        {
+            await _dbContext.Posts.AddAsync(post);
+            await _dbContext.SaveChangesAsync();
+            return new Response<string>(StatusCodes.Status201Created,"Postare a fost creata cu succes!");
+        }
+
+         
     }
 }

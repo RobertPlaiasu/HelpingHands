@@ -1,4 +1,5 @@
-﻿using HelpingHands.Entities;
+﻿using HelpingHands.Dtos;
+using HelpingHands.Entities;
 using HelpingHands.Responses;
 
 namespace HelpingHands.Services.Contracts
@@ -7,6 +8,6 @@ namespace HelpingHands.Services.Contracts
     {
         Task<Response<IEnumerable<Post>>> GetPosts();
         Task<Response<IEnumerable<Category>>> GetCategories();
-        Task<Response<string>> CreatePost(Post post);
+        Task<Response<string>> CreatePost(CreatePostDto post);
     }
 }
